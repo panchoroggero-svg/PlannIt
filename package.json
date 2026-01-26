@@ -9,9 +9,8 @@
 
   "type": "module",
   "scripts": {
-    "build": "node ./node_modules/vite/bin/vite.js build",
-    "dev": "vite"
-  },
+  "build": "echo BUILD_FROM_THIS_PACKAGE_JSON && exit 1"
+},
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
