@@ -4,7 +4,7 @@ import { Progress } from "@/app/components/ui/progress";
 
 export function Home() {
   const event = {
-    name: "Pancho & Manu",
+    name: "Pancho & Quisa",
     date: "June 15, 2026",
     type: "Wedding",
     daysUntil: 142,
