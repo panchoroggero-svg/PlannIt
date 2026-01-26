@@ -9,9 +9,8 @@
 
   "type": "module",
   "scripts": {
-  "postinstall": "chmod +x node_modules/.bin/vite",
-  "build": "vite build",
-  "dev": "vite"
+  "build": "node node_modules/vite/bin/vite.js build",
+  "dev": "node node_modules/vite/bin/vite.js"
 },
   "dependencies": {
     "@emotion/react": "11.14.0",
