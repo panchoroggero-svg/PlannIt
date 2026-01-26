@@ -3,8 +3,8 @@ import { Button } from "@/app/components/ui/button";
 
 export function Profile() {
   const user = {
-    name: "Emma Anderson",
-    email: "emma.anderson@email.com",
+    name: "Manuela Deleau",
+    email: "manudeleau11@email.com",
     memberSince: "January 2026",
   };
 
