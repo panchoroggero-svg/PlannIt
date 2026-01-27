@@ -2,15 +2,17 @@ import { ChevronRight, User, Bell, Shield, LogOut } from "lucide-react"
 
 export function Profile() {
   return (
-    <div className="min-h-screen bg-[#F2F2F7]">
-      {/* Header */}
-      <div className="px-6 pt-6 pb-4">
-        <h1 className="text-2xl font-semibold">Profile</h1>
-      </div>
+    <div className="bg-[#F2F2F7] min-h-screen px-4 pt-6 pb-10">
+      {/* iOS Header */}
+      <header className="mb-6">
+        <h1 className="text-[34px] leading-tight font-semibold tracking-tight">
+          Profile
+        </h1>
+      </header>
 
       {/* User Card */}
-      <div className="px-6 mb-6">
-        <div className="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-sm">
+      <div className="mb-6">
+        <div className="bg-white rounded-2xl p-4 flex items-center gap-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]">
           <div className="w-14 h-14 rounded-full bg-[#007AFF]/20 flex items-center justify-center">
             <User className="w-7 h-7 text-[#007AFF]" />
           </div>
@@ -23,19 +25,15 @@ export function Profile() {
         </div>
       </div>
 
-      {/* Settings */}
-      <div className="px-6 space-y-4">
+      {/* Settings Sections */}
+      <div className="space-y-4">
         <Section>
           <Row icon={<Bell />} label="Notifications" />
           <Row icon={<Shield />} label="Privacy & Security" />
         </Section>
 
         <Section>
-          <Row
-            icon={<LogOut />}
-            label="Log out"
-            danger
-          />
+          <Row icon={<LogOut />} label="Log out" danger />
         </Section>
       </div>
     </div>
@@ -44,7 +42,7 @@ export function Profile() {
 
 function Section({ children }: { children: React.ReactNode }) {
   return (
-    <div className="bg-white rounded-2xl divide-y divide-[#E5E5EA] shadow-sm">
+    <div className="bg-white rounded-2xl divide-y divide-[#E5E5EA] shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]">
       {children}
     </div>
   )
@@ -61,11 +59,7 @@ function Row({
 }) {
   return (
     <div className="flex items-center justify-between px-4 py-4">
-      <div
-        className={`flex items-center gap-3 ${
-          danger ? "text-red-500" : ""
-        }`}
-      >
+      <div className={`flex items-center gap-3 ${danger ? "text-red-500" : ""}`}>
         {icon}
         <span className="text-[16px]">{label}</span>
       </div>
