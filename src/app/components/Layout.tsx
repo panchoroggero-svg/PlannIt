@@ -12,11 +12,11 @@ export function Layout() {
   return (
     <div className="min-h-screen bg-[#F2F2F7]">
       {/* CONTENIDO */}
-      <div className="pb-[96px]">
+      <div className="pb-[110px]">
         <Outlet />
       </div>
 
-      {/* TAB BAR iOS STYLE */}
+      {/* iOS APP STORE TAB BAR */}
       <nav
         className="
           fixed
@@ -24,15 +24,21 @@ export function Layout() {
           left-0
           right-0
           z-50
-          h-[64px]
-          py-2
+
+          h-[88px]
+          pt-2
+          pb-4
+
           flex
           justify-around
           items-center
+
           border-t
-          border-[#E5E5EA]
-          bg-white/70
-          backdrop-blur-xl
+          border-[#D1D1D6]
+
+          bg-white/60
+          backdrop-blur-2xl
+          supports-[backdrop-filter]:bg-white/50
         "
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
@@ -60,9 +66,18 @@ function Tab({
       to={to}
       className={({ isActive }) =>
         `
-        flex flex-col items-center justify-center gap-1
-        text-[11px]
-        transition
+        flex
+        flex-col
+        items-center
+        justify-center
+
+        gap-[2px]
+
+        text-[10px]
+        leading-none
+        font-normal
+
+        transition-colors
         ${isActive ? "text-[#007AFF]" : "text-[#8E8E93]"}
         `
       }
