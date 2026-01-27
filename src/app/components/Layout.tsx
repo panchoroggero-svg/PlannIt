@@ -10,24 +10,13 @@ export function Layout() {
         <Outlet />
       </div>
 
-      {/* TAB BAR estilo iOS + PlanIt */}
+      {/* TAB BAR estilo iOS */}
       <nav
-        className="
-          fixed bottom-0 left-0 right-0
-          z-50
-          bg-transparent
-        "
+        className="fixed bottom-0 left-0 right-0 z-50"
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        {/* MISMO color base que el fondo, contraste solo por blur */}
-        <div className="bg-[#F2F2F2]/40 backdrop-blur-2xl">
-          <div
-            className="
-              h-[88px]
-              flex justify-around
-              pt-2
-            "
-          >
+        <div className="bg-[#F2F2F2]/45 backdrop-blur-2xl">
+          <div className="h-[88px] flex justify-around pt-2">
             <Tab to="/" icon={<Home size={22} />} label="Eventos" />
             <Tab to="/budget" icon={<Wallet size={22} />} label="Presupuesto" />
             <Tab to="/guests" icon={<Users size={22} />} label="Invitados" />
@@ -54,16 +43,16 @@ function Tab({
       to={to}
       end
       className={({ isActive }) =>
-        [
-          "flex flex-col items-center gap-0.5",
-          "text-[10px] font-medium",
-          "no-underline",
-          isActive ? "text-[#2385F3]" : "text-[#8E8E93]", // activa azul, resto gris
-        ].join(" ")
+        `
+        flex flex-col items-center gap-0.5
+        text-[10px] font-medium
+        no-underline
+        ${isActive ? "text-[#2385F3]" : "text-[#8E8E93]"}
+        `
       }
     >
       {icon}
-      <span className="no-underline">{label}</span>
+      <span>{label}</span>
     </NavLink>
   )
 }

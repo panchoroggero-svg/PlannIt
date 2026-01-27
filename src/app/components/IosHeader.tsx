@@ -17,17 +17,16 @@ export default function IosHeader({ title }: IosHeaderProps) {
   }, [])
 
   return (
-    <header
-      className="
-        sticky top-0 z-40
-        bg-transparent
-      "
-      style={{ paddingTop: "env(safe-area-inset-top)" }}
-    >
-      {/* MISMO material que la barra inferior:
-          mismo color base, contraste solo por blur */}
-      <div className="bg-[#F2F2F2]/40 backdrop-blur-2xl">
-        {/* Header chico (colapsado) */}
+    <header className="sticky top-0 z-40">
+      {/* UNA sola lámina (status bar + header) */}
+      <div
+        className="
+          bg-[#F2F2F2]/45
+          backdrop-blur-2xl
+        "
+        style={{ paddingTop: "env(safe-area-inset-top)" }}
+      >
+        {/* Header colapsado (status-bar aware) */}
         <div
           className={`
             h-11
@@ -36,16 +35,16 @@ export default function IosHeader({ title }: IosHeaderProps) {
             ${collapsed ? "opacity-100" : "opacity-0"}
           `}
         >
-          <span className="text-[17px] font-semibold text-[#3D3D3D]">
+          <span className="text-[17px] font-semibold text-[#3C3C43]">
             {title}
           </span>
         </div>
 
-        {/* Large Title: algo más compacto y más arriba */}
+        {/* Large Title */}
         <div className="px-4 pb-1 pt-1">
           <h1
             className={`
-              text-[32px] font-bold tracking-tight text-[#3D3D3D]
+              text-[32px] font-bold tracking-tight text-[#3C3C43]
               transition-all duration-200
               ${
                 collapsed
