@@ -8,11 +8,8 @@
   "packageManager": "npm@10.5.0",
   "type": "module",
   "scripts": {
-  "dev": "node ./node_modules/vite/bin/vite.js",
-  "build": "node ./node_modules/vite/bin/vite.js build",
-  "preview": "node ./node_modules/vite/bin/vite.js preview"
-}
-,
+    "build": "node ./node_modules/vite/bin/vite.js build"
+  },
   "dependencies": {
     "@emotion/react": "11.14.0",
     "@emotion/styled": "11.14.1",
