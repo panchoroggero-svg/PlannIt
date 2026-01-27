@@ -19,8 +19,8 @@ export function Layout() {
         "
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        {/* Mucho más transparente, sin línea, con leve sombra tipo iOS */}
-        <div className="bg-white/55 backdrop-blur-2xl shadow-[0_-6px_20px_rgba(0,0,0,0.12)]">
+        {/* MISMO color base que el fondo, contraste solo por blur */}
+        <div className="bg-[#F2F2F2]/40 backdrop-blur-2xl">
           <div
             className="
               h-[88px]
@@ -52,19 +52,15 @@ function Tab({
   return (
     <NavLink
       to={to}
-      className={({ isActive }) =>
-        `
-        flex flex-col items-center gap-0.5
-        text-[10px] font-medium
-        no-underline
-        ${
-          isActive
-            ? "text-[#2385F3]"    /* SOLO seleccionada en azul PlanIt */
-            : "text-[#A0A0A5]"    /* resto gris claro */
-        }
-        `
-      }
       end
+      className={({ isActive }) =>
+        [
+          "flex flex-col items-center gap-0.5",
+          "text-[10px] font-medium",
+          "no-underline",
+          isActive ? "text-[#2385F3]" : "text-[#8E8E93]", // activa azul, resto gris
+        ].join(" ")
+      }
     >
       {icon}
       <span className="no-underline">{label}</span>
