@@ -12,6 +12,7 @@ import {
   TabsList,
   TabsTrigger,
 } from "@/app/components/ui/tabs"
+import IosHeader from "@/app/components/IosHeader"
 
 export function Guests() {
   const stats = {
@@ -60,14 +61,13 @@ export function Guests() {
       : guests
 
     return (
-      <div className="space-y-4">
+      <div className="space-y-3">
         {filteredGuests.map((guest) => (
           <div
             key={guest.id}
-            className="bg-white rounded-2xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
+            className="bg-white rounded-2xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]"
           >
             <div className="flex gap-3">
-              {/* Avatar */}
               <div className="w-10 h-10 rounded-full bg-[#E5E5EA] flex items-center justify-center text-[15px] font-medium flex-shrink-0">
                 {guest.name.charAt(0)}
               </div>
@@ -110,58 +110,58 @@ export function Guests() {
   }
 
   return (
-    <div className="bg-[#F2F2F7] min-h-screen px-4 pt-2 pb-6 overscroll-contain">
+    <div className="bg-[#F2F2F7] min-h-full pb-24">
       {/* iOS Header */}
-      <header className="mb-4">
-        <h1 className="text-[34px] font-semibold leading-tight tracking-tight">
-          Guests
-        </h1>
-        <p className="text-[15px] text-[#6B6B6F] mt-1">
-          Manage your guest list
-        </p>
-      </header>
+      <IosHeader title="Guests" />
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-2 mb-4">
-        <StatCard label="Total" value={stats.total} />
-        <StatCard label="Yes" value={stats.confirmed} accent="green" />
-        <StatCard label="No" value={stats.declined} accent="red" />
-        <StatCard label="Pending" value={stats.pending} />
-      </div>
+      <div className="px-4 pt-4 space-y-6">
+        <div className="grid grid-cols-4 gap-2">
+          <StatCard label="Total" value={stats.total} />
+          <StatCard label="Yes" value={stats.confirmed} accent="green" />
+          <StatCard label="No" value={stats.declined} accent="red" />
+          <StatCard label="Pending" value={stats.pending} />
+        </div>
 
-      {/* Search */}
-      <div className="mb-4 relative">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B6B6F]" />
-        <Input
-          placeholder="Search guests"
-          className="pl-10 h-11 rounded-2xl bg-white border-none shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
-        />
+        {/* Search */}
+        <div className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B6B6F]" />
+          <Input
+            placeholder="Search guests"
+            className="pl-10 h-11 rounded-xl bg-white border-none shadow-sm"
+          />
+        </div>
       </div>
 
       {/* Tabs */}
-      <Tabs defaultValue="all">
-        <TabsList className="w-full bg-[#E5E5EA] rounded-2xl p-1 mb-4">
-          <TabsTrigger value="all" className="flex-1 rounded-xl">
-            All
-          </TabsTrigger>
-          <TabsTrigger value="confirmed" className="flex-1 rounded-xl">
-            Confirmed
-          </TabsTrigger>
-          <TabsTrigger value="pending" className="flex-1 rounded-xl">
-            Pending
-          </TabsTrigger>
-        </TabsList>
+      <div className="px-4 pt-6">
+        <Tabs defaultValue="all">
+          <TabsList className="w-full bg-[#E5E5EA] rounded-xl p-1 mb-5">
+            <TabsTrigger value="all" className="flex-1 rounded-lg">
+              All
+            </TabsTrigger>
+            <TabsTrigger value="confirmed" className="flex-1 rounded-lg">
+              Confirmed
+            </TabsTrigger>
+            <TabsTrigger value="pending" className="flex-1 rounded-lg">
+              Pending
+            </TabsTrigger>
+          </TabsList>
 
-        <TabsContent value="all">
-          <GuestList />
-        </TabsContent>
-        <TabsContent value="confirmed">
-          <GuestList filterStatus="confirmed" />
-        </TabsContent>
-        <TabsContent value="pending">
-          <GuestList filterStatus="pending" />
-        </TabsContent>
-      </Tabs>
+          <TabsContent value="all">
+            <GuestList />
+          </TabsContent>
+          <TabsContent value="confirmed">
+            <GuestList filterStatus="confirmed" />
+          </TabsContent>
+          <TabsContent value="pending">
+            <GuestList filterStatus="pending" />
+          </TabsContent>
+        </Tabs>
+      </div>
+
+      {/* Bottom padding simula menú inferior translúcido */}
+      <div className="fixed bottom-0 w-full h-20 bg-white/70 backdrop-blur-md rounded-t-2xl shadow-t-sm"></div>
     </div>
   )
 }
@@ -181,11 +181,9 @@ function StatCard({
   }
 
   return (
-    <div className="bg-white rounded-2xl p-3 text-center shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]">
+    <div className="bg-white rounded-2xl p-3 text-center shadow-sm">
       <div
-        className={`text-[20px] font-semibold ${
-          accent ? accentMap[accent] : ""
-        }`}
+        className={`text-[20px] font-semibold ${accent ? accentMap[accent] : ""}`}
       >
         {value}
       </div>
