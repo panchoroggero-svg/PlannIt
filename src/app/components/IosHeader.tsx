@@ -20,36 +20,31 @@ export default function IosHeader({ title }: IosHeaderProps) {
     <header
       className="
         sticky top-0 z-40
-        bg-[#F2F2F7]/70
-        backdrop-blur-xl
+        bg-[#F2F2F7]
       "
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      {/* CAJA REAL DEL HEADER (iOS REAL) */}
-      <div className="h-[96px] px-4 flex flex-col">
-        
-        {/* SMALL TITLE (navigation bar) */}
-        <div className="h-11 flex items-center justify-center relative">
-          <span
-            className={`
-              text-[17px] font-semibold
-              transition-opacity duration-200
-              ${collapsed ? "opacity-100" : "opacity-0"}
-            `}
-          >
-            {title}
-          </span>
+      {/* capa blur estilo iOS */}
+      <div className="bg-[#F2F2F7]/70 backdrop-blur-xl">
+        {/* Header chico (colapsado) */}
+        <div
+          className={`
+            h-11
+            flex items-center justify-center
+            transition-opacity duration-200
+            ${collapsed ? "opacity-100" : "opacity-0"}
+          `}
+        >
+          <span className="text-[17px] font-semibold">{title}</span>
         </div>
 
-        {/* LARGE TITLE */}
-        <div className="flex-1 flex items-end pb-[6px]">
+        {/* Large Title */}
+        <div className="px-4 pb-2 pt-1">
           <h1
             className={`
-              text-[34px] font-bold tracking-tight leading-none
+              text-[34px] font-bold tracking-tight
               transition-all duration-200
-              ${collapsed
-                ? "opacity-0 translate-y-2"
-                : "opacity-100 translate-y-0"}
+              ${collapsed ? "opacity-0 translate-y-2" : "opacity-100"}
             `}
           >
             {title}
