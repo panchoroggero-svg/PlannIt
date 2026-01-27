@@ -1,26 +1,28 @@
 import { Outlet, NavLink } from "react-router-dom"
 import { Home, Wallet, Users, Store, User } from "lucide-react"
+import type { ReactNode } from "react"
 
 export function Layout() {
   return (
-    <div className="min-h-screen bg-[#F2F2F7]">
+    <div className="min-h-screen bg-[#F2F2F2]">
       {/* CONTENIDO */}
       <div className="pb-[88px]">
         <Outlet />
       </div>
 
-      {/* TAB BAR estilo iOS */}
+      {/* TAB BAR estilo iOS + identidad PlanIt */}
       <nav
         className="
           fixed bottom-0 left-0 right-0
           z-50
-          bg-transparent
+          bg-[#F2F2F2]
         "
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        {/* blur real + transparencia ligera + línea menos marcada */}
-        <div className="bg-[#F2F2F7]/50 backdrop-blur-xl border-t border-[rgba(60,60,67,0.15)]">
-          <div className="
+        {/* capa de vidrio + borde hairline */}
+        <div className="bg-[#F2F2F2]/70 backdrop-blur-xl border-t border-[rgba(60,60,67,0.15)]">
+          <div
+            className="
               h-[88px]
               flex justify-around
               pt-2
@@ -44,7 +46,7 @@ function Tab({
   label,
 }: {
   to: string
-  icon: React.ReactNode
+  icon: ReactNode
   label: string
 }) {
   return (
@@ -54,7 +56,11 @@ function Tab({
         `
         flex flex-col items-center gap-0.5
         text-[10px] font-medium
-        ${isActive ? "text-[#007AFF]" : "text-[#8E8E93]"}
+        ${
+          isActive
+            ? "text-[#2385F3]"   /* azul PlanIt */
+            : "text-[#8E8E93]"   /* gris iOS para inactivo */
+        }
         `
       }
     >
@@ -63,3 +69,4 @@ function Tab({
     </NavLink>
   )
 }
+
