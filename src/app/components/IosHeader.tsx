@@ -9,10 +9,10 @@ export default function IosHeader({ title }: IosHeaderProps) {
 
   useEffect(() => {
     const onScroll = () => {
-      setCollapsed(window.scrollY > 32)
+      setCollapsed(window.scrollY > 28)
     }
 
-    window.addEventListener("scroll", onScroll, { passive: true })
+    window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
@@ -20,24 +20,18 @@ export default function IosHeader({ title }: IosHeaderProps) {
     <header
       className="
         sticky top-0 z-40
-        bg-[#F2F2F7]/80 backdrop-blur-xl
-        border-b border-black/5
+        bg-[#F2F2F7]/80
+        backdrop-blur-xl
       "
+      style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      {/* CONTENEDOR CON ALTURA FIJA (clave para evitar saltos) */}
-      <div
-        className="relative px-4"
-        style={{
-          paddingTop: "env(safe-area-inset-top)",
-          height: "96px", // altura total tipo iOS
-        }}
-      >
-        {/* Header chico */}
+      {/* CONTENEDOR DE ALTURA FIJA (CLAVE iOS) */}
+      <div className="relative h-[96px] px-4">
+        {/* Small title (collapsed) */}
         <div
           className={`
-            absolute top-[env(safe-area-inset-top)]
-            left-0 right-0
-            h-12
+            absolute top-0 left-0 right-0
+            h-11
             flex items-center justify-center
             transition-opacity duration-200
             ${collapsed ? "opacity-100" : "opacity-0"}
@@ -46,15 +40,17 @@ export default function IosHeader({ title }: IosHeaderProps) {
           <span className="text-[17px] font-semibold">{title}</span>
         </div>
 
-        {/* Large Title */}
-        <div className="absolute bottom-2 left-4 right-4">
-          <h1
-            className={`
-              text-[34px] font-bold tracking-tight
-              transition-all duration-200
-              ${collapsed ? "opacity-0 -translate-y-2" : "opacity-100 translate-y-0"}
-            `}
-          >
+        {/* Large title */}
+        <div
+          className={`
+            absolute bottom-0 left-0 right-0
+            transition-all duration-200
+            ${collapsed
+              ? "opacity-0 translate-y-2 scale-[0.98]"
+              : "opacity-100 translate-y-0 scale-100"}
+          `}
+        >
+          <h1 className="text-[34px] font-bold tracking-tight leading-[1.1]">
             {title}
           </h1>
         </div>
