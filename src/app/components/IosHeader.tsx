@@ -24,8 +24,8 @@ export default function IosHeader({ title }: IosHeaderProps) {
       "
       style={{ paddingTop: "env(safe-area-inset-top)" }}
     >
-      {/* Misma “materia” que la barra inferior: fondo + blur, sin borde */}
-      <div className="bg-[#F2F2F2]/60 backdrop-blur-2xl">
+      {/* MISMO material que la barra inferior: fondo + blur + más transparencia */}
+      <div className="bg-[#F2F2F2]/35 backdrop-blur-2xl">
         {/* Header chico (colapsado) */}
         <div
           className={`
@@ -40,7 +40,7 @@ export default function IosHeader({ title }: IosHeaderProps) {
           </span>
         </div>
 
-        {/* Large Title un poco más arriba y caja más baja */}
+        {/* Large Title un poco más arriba, caja más compacta */}
         <div className="px-4 pb-1 pt-0">
           <h1
             className={`

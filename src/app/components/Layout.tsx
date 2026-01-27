@@ -19,8 +19,8 @@ export function Layout() {
         "
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        {/* Vidrio difuminado, SIN línea de borde */}
-        <div className="bg-[#F2F2F2]/60 backdrop-blur-2xl">
+        {/* Vidrio difuminado, MÁS transparente, sin línea */}
+        <div className="bg-[#F2F2F2]/35 backdrop-blur-2xl">
           <div
             className="
               h-[88px]
@@ -59,8 +59,8 @@ function Tab({
         no-underline
         ${
           isActive
-            ? "text-[#2385F3]"   /* celeste PlanIt activo */
-            : "text-[#8E8E93]"   /* gris iOS inactivo */
+            ? "text-[#2385F3]"    /* seleccionado: azul PlanIt */
+            : "text-[#A0A0A5]"    /* no seleccionados: gris más claro */
         }
         `
       }
