@@ -1,17 +1,22 @@
 import { Outlet, NavLink } from "react-router-dom"
-import { Home, Wallet, Users, Store, User } from "lucide-react"
+import {
+  Home,
+  Wallet,
+  Users,
+  Store,
+  User,
+} from "lucide-react"
+import type { ReactNode } from "react"
 
 export function Layout() {
   return (
     <div className="min-h-screen bg-[#F2F2F7]">
       {/* CONTENIDO */}
-      <div
-        className="pb-[83px]" // espacio para la tab bar + safe area
-      >
+      <div className="pb-[96px]">
         <Outlet />
       </div>
 
-      {/* TAB BAR iOS */}
+      {/* TAB BAR iOS STYLE */}
       <nav
         className="
           fixed
@@ -19,7 +24,8 @@ export function Layout() {
           left-0
           right-0
           z-50
-          h-[49px]
+          h-[64px]
+          py-2
           flex
           justify-around
           items-center
@@ -46,7 +52,7 @@ function Tab({
   label,
 }: {
   to: string
-  icon: React.ReactNode
+  icon: ReactNode
   label: string
 }) {
   return (
@@ -54,13 +60,10 @@ function Tab({
       to={to}
       className={({ isActive }) =>
         `
-        flex flex-col items-center justify-center gap-[2px]
-        text-[10px]
-        ${
-          isActive
-            ? "text-[#007AFF]"
-            : "text-[#8E8E93]"
-        }
+        flex flex-col items-center justify-center gap-1
+        text-[11px]
+        transition
+        ${isActive ? "text-[#007AFF]" : "text-[#8E8E93]"}
         `
       }
     >
