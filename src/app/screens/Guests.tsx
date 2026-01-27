@@ -60,11 +60,11 @@ export function Guests() {
       : guests
 
     return (
-      <div className="space-y-3">
+      <div className="space-y-4">
         {filteredGuests.map((guest) => (
           <div
             key={guest.id}
-            className="bg-white rounded-2xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]"
+            className="bg-white rounded-2xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
           >
             <div className="flex gap-3">
               {/* Avatar */}
@@ -110,10 +110,10 @@ export function Guests() {
   }
 
   return (
-    <div className="min-h-screen px-4 pt-6 pb-10 bg-[#F2F2F7]">
+    <div className="bg-[#F2F2F7] min-h-screen px-4 pt-2 pb-6 overscroll-contain">
       {/* iOS Header */}
-      <header className="mb-6">
-        <h1 className="text-[34px] leading-tight font-semibold tracking-tight">
+      <header className="mb-4">
+        <h1 className="text-[34px] font-semibold leading-tight tracking-tight">
           Guests
         </h1>
         <p className="text-[15px] text-[#6B6B6F] mt-1">
@@ -122,7 +122,7 @@ export function Guests() {
       </header>
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-2 mb-6">
+      <div className="grid grid-cols-4 gap-2 mb-4">
         <StatCard label="Total" value={stats.total} />
         <StatCard label="Yes" value={stats.confirmed} accent="green" />
         <StatCard label="No" value={stats.declined} accent="red" />
@@ -130,24 +130,24 @@ export function Guests() {
       </div>
 
       {/* Search */}
-      <div className="mb-6 relative">
+      <div className="mb-4 relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B6B6F]" />
         <Input
           placeholder="Search guests"
-          className="pl-10 h-11 rounded-xl bg-white border-none shadow-sm"
+          className="pl-10 h-11 rounded-2xl bg-white border-none shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
         />
       </div>
 
       {/* Tabs */}
       <Tabs defaultValue="all">
-        <TabsList className="w-full bg-[#E5E5EA] rounded-xl p-1 mb-5">
-          <TabsTrigger value="all" className="flex-1 rounded-lg">
+        <TabsList className="w-full bg-[#E5E5EA] rounded-2xl p-1 mb-4">
+          <TabsTrigger value="all" className="flex-1 rounded-xl">
             All
           </TabsTrigger>
-          <TabsTrigger value="confirmed" className="flex-1 rounded-lg">
+          <TabsTrigger value="confirmed" className="flex-1 rounded-xl">
             Confirmed
           </TabsTrigger>
-          <TabsTrigger value="pending" className="flex-1 rounded-lg">
+          <TabsTrigger value="pending" className="flex-1 rounded-xl">
             Pending
           </TabsTrigger>
         </TabsList>
@@ -181,7 +181,7 @@ function StatCard({
   }
 
   return (
-    <div className="bg-white rounded-2xl p-3 text-center shadow-sm">
+    <div className="bg-white rounded-2xl p-3 text-center shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]">
       <div
         className={`text-[20px] font-semibold ${
           accent ? accentMap[accent] : ""
@@ -189,9 +189,7 @@ function StatCard({
       >
         {value}
       </div>
-      <div className="text-[12px] text-[#6B6B6F]">
-        {label}
-      </div>
+      <div className="text-[12px] text-[#6B6B6F]">{label}</div>
     </div>
   )
 }
