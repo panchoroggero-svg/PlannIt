@@ -27,7 +27,7 @@ export function Home() {
     <div className="bg-[#F2F2F7] min-h-full">
       <IosHeader title="Eventos" />
 
-      <main className="px-4 pt-4 pb-6 space-y-4">
+      <main className="px-4 pt-2 pb-6 space-y-4">
         <h2 className="text-[13px] font-medium text-[#6B6B6F] px-1">
           PRÓXIMOS EVENTOS
         </h2>

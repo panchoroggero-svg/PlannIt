@@ -9,7 +9,7 @@ export default function IosHeader({ title }: IosHeaderProps) {
 
   useEffect(() => {
     const onScroll = () => {
-      setCollapsed(window.scrollY > 32)
+      setCollapsed(window.scrollY > 44)
     }
 
     window.addEventListener("scroll", onScroll)
@@ -18,28 +18,31 @@ export default function IosHeader({ title }: IosHeaderProps) {
 
   return (
     <header className="sticky top-0 z-40 bg-[#F2F2F7]/80 backdrop-blur-xl">
-      {/* Header chico (colapsado) */}
+      {/* Header colapsado */}
       <div
         className={`
-          h-12
-          flex items-center justify-center
+          h-[44px]
+          flex items-end justify-center
+          pb-1
           transition-opacity duration-200
           ${collapsed ? "opacity-100" : "opacity-0"}
         `}
         style={{ paddingTop: "env(safe-area-inset-top)" }}
       >
-        <span className="text-[17px] font-semibold">{title}</span>
+        <span className="text-[17px] font-semibold leading-none">
+          {title}
+        </span>
       </div>
 
       {/* Large Title */}
-      <div className="px-4 pb-2 pt-2">
-        <h1
-          className={`
-            text-[34px] font-bold tracking-tight
-            transition-all duration-200
-            ${collapsed ? "opacity-0 translate-y-2" : "opacity-100"}
-          `}
-        >
+      <div
+        className={`
+          px-4
+          transition-all duration-200
+          ${collapsed ? "h-0 overflow-hidden opacity-0" : "h-[52px] opacity-100"}
+        `}
+      >
+        <h1 className="text-[34px] font-bold tracking-tight leading-tight">
           {title}
         </h1>
       </div>
