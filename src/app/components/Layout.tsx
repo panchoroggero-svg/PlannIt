@@ -3,25 +3,32 @@ import { Home, Wallet, Users, Store, User } from "lucide-react"
 
 export function Layout() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#F2F2F7]">
+    <div className="min-h-screen bg-[#F2F2F7]">
       {/* CONTENIDO */}
-      <div className="flex-1 overflow-y-auto">
+      <div
+        className="pb-[83px]" // espacio para la tab bar + safe area
+      >
         <Outlet />
       </div>
 
-      {/* TAB BAR estilo iOS */}
+      {/* TAB BAR iOS */}
       <nav
         className="
-          sticky bottom-0 z-50
-          h-[84px]
-          flex justify-around items-center
-          border-t border-white/20
+          fixed
+          bottom-0
+          left-0
+          right-0
+          z-50
+          h-[49px]
+          flex
+          justify-around
+          items-center
+          border-t
+          border-[#E5E5EA]
           bg-white/70
           backdrop-blur-xl
         "
-        style={{
-          paddingBottom: "env(safe-area-inset-bottom)",
-        }}
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
         <Tab to="/" icon={<Home size={22} />} label="Eventos" />
         <Tab to="/budget" icon={<Wallet size={22} />} label="Presupuesto" />
@@ -47,13 +54,11 @@ function Tab({
       to={to}
       className={({ isActive }) =>
         `
-        flex flex-col items-center justify-center gap-1
-        text-[10px] font-medium
-        transition-all duration-150
-        active:scale-95
+        flex flex-col items-center justify-center gap-[2px]
+        text-[10px]
         ${
           isActive
-            ? "text-[#007AFF] translate-y-[-1px]"
+            ? "text-[#007AFF]"
             : "text-[#8E8E93]"
         }
         `
