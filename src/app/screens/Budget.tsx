@@ -1,12 +1,9 @@
+import IosHeader from "@/app/components/IosHeader"
 import { TrendingDown, TrendingUp } from "lucide-react"
 import { Progress } from "@/app/components/ui/progress"
 
 export function Budget() {
-  const budget = {
-    total: 35000,
-    spent: 12500,
-    remaining: 22500,
-  }
+  const budget = { total: 35000, spent: 12500, remaining: 22500 }
 
   const categories = [
     { name: "Venue", budgeted: 12000, spent: 12000, color: "bg-chart-1" },
@@ -20,104 +17,52 @@ export function Budget() {
   ]
 
   return (
-    <div className="min-h-screen px-4 pt-6 pb-10 bg-[#F2F2F7]">
-      {/* iOS Header */}
-      <header className="mb-6">
-        <h1 className="text-[34px] leading-tight font-semibold tracking-tight">
-          Budget
-        </h1>
-        <p className="text-[15px] text-[#6B6B6F] mt-1">
-          Track your expenses
-        </p>
-      </header>
+    <div className="bg-[#F2F2F7] min-h-full px-4 pt-2 pb-6 space-y-6">
+      <IosHeader title="Budget" />
 
-      {/* Total Budget Card */}
-      <section className="mb-8">
-        <div className="bg-white rounded-2xl p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]">
-          <div className="text-[13px] text-[#6B6B6F] mb-1">
-            Total Budget
-          </div>
-
-          <div className="text-[32px] font-semibold mb-4">
-            ${budget.total.toLocaleString()}
-          </div>
-
-          <Progress
-            value={(budget.spent / budget.total) * 100}
-            className="h-2 rounded-full mb-5"
-          />
-
-          <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-xl bg-[#F2F2F7] p-3">
-              <div className="flex items-center gap-1 text-[12px] text-[#6B6B6F] mb-1">
-                <TrendingDown className="w-3 h-3" />
-                Spent
+      <main className="space-y-8">
+        {/* Total Budget Card */}
+        <section>
+          <div className="bg-white rounded-2xl p-5 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]">
+            <div className="text-[13px] text-[#6B6B6F] mb-1">Total Budget</div>
+            <div className="text-[32px] font-semibold mb-4">${budget.total.toLocaleString()}</div>
+            <Progress value={(budget.spent / budget.total) * 100} className="h-2 rounded-full mb-5" />
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-xl bg-[#F2F2F7] p-3">
+                <div className="flex items-center gap-1 text-[12px] text-[#6B6B6F] mb-1"><TrendingDown className="w-3 h-3" />Spent</div>
+                <div className="text-[17px] font-medium">${budget.spent.toLocaleString()}</div>
               </div>
-              <div className="text-[17px] font-medium">
-                ${budget.spent.toLocaleString()}
-              </div>
-            </div>
-
-            <div className="rounded-xl bg-[#F2F2F7] p-3">
-              <div className="flex items-center gap-1 text-[12px] text-[#6B6B6F] mb-1">
-                <TrendingUp className="w-3 h-3" />
-                Remaining
-              </div>
-              <div className="text-[17px] font-medium text-[#007AFF]">
-                ${budget.remaining.toLocaleString()}
+              <div className="rounded-xl bg-[#F2F2F7] p-3">
+                <div className="flex items-center gap-1 text-[12px] text-[#6B6B6F] mb-1"><TrendingUp className="w-3 h-3" />Remaining</div>
+                <div className="text-[17px] font-medium text-[#007AFF]">${budget.remaining.toLocaleString()}</div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Categories */}
-      <section>
-        <h3 className="text-[20px] font-semibold mb-4">
-          By Category
-        </h3>
-
-        <div className="space-y-3">
-          {categories.map((category) => {
-            const percentage =
-              category.budgeted > 0
-                ? (category.spent / category.budgeted) * 100
-                : 0
-
-            return (
-              <div
-                key={category.name}
-                className="bg-white rounded-2xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]"
-              >
-                <div className="flex justify-between items-center mb-3">
-                  <div className="flex items-center gap-2">
-                    <span
-                      className={`w-2.5 h-2.5 rounded-full ${category.color}`}
-                    />
-                    <span className="text-[15px] font-medium">
-                      {category.name}
-                    </span>
+        {/* Categories */}
+        <section>
+          <h3 className="text-[20px] font-semibold mb-4">By Category</h3>
+          <div className="space-y-3">
+            {categories.map((cat) => {
+              const percentage = cat.budgeted > 0 ? (cat.spent / cat.budgeted) * 100 : 0
+              return (
+                <div key={cat.name} className="bg-white rounded-2xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]">
+                  <div className="flex justify-between items-center mb-3">
+                    <div className="flex items-center gap-2">
+                      <span className={`w-2.5 h-2.5 rounded-full ${cat.color}`} />
+                      <span className="text-[15px] font-medium">{cat.name}</span>
+                    </div>
+                    <span className="text-[13px] text-[#6B6B6F]">${cat.spent.toLocaleString()} / ${cat.budgeted.toLocaleString()}</span>
                   </div>
-
-                  <span className="text-[13px] text-[#6B6B6F]">
-                    ${category.spent.toLocaleString()} /{" "}
-                    ${category.budgeted.toLocaleString()}
-                  </span>
+                  <Progress value={percentage} className="h-1.5" />
+                  {cat.spent > 0 && <div className="text-[12px] text-[#6B6B6F] mt-2">{Math.round(percentage)}% used</div>}
                 </div>
-
-                <Progress value={percentage} className="h-1.5" />
-
-                {category.spent > 0 && (
-                  <div className="text-[12px] text-[#6B6B6F] mt-2">
-                    {Math.round(percentage)}% used
-                  </div>
-                )}
-              </div>
-            )
-          })}
-        </div>
-      </section>
+              )
+            })}
+          </div>
+        </section>
+      </main>
     </div>
   )
 }
-
