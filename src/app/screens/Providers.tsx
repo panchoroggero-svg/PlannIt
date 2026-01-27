@@ -31,22 +31,19 @@ export function Providers() {
   return (
     <div className="min-h-screen p-6 bg-[#F2F2F7]">
       {/* Header */}
-      <div className="mb-6">
-        <h1 className="text-2xl font-semibold">Providers</h1>
-        <p className="text-sm text-[#6B6B6F]">Your event partners</p>
-      </div>
+      <header className="mb-6">
+        <h1 className="text-[34px] font-semibold leading-tight tracking-tight">
+          Providers
+        </h1>
+        <p className="text-[15px] text-[#6B6B6F] mt-1">Your event partners</p>
+      </header>
 
-      {/* List */}
+      {/* Providers List */}
       <div className="space-y-4">
         {providers.map((provider) => (
           <div
             key={provider.id}
-            className="
-              bg-white
-              rounded-2xl
-              p-4
-              shadow-[0_1px_2px_rgba(0,0,0,0.04),0_4px_12px_rgba(0,0,0,0.06)]
-            "
+            className="bg-white rounded-2xl p-4 shadow-[0_1px_2px_rgba(0,0,0,0.04),0_8px_24px_rgba(0,0,0,0.06)]"
           >
             <div className="flex justify-between items-start mb-2">
               <div>
