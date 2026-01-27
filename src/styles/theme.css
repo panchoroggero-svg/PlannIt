@@ -30,7 +30,7 @@ body {
   background-color: var(--planit-color-bg);
 }
 
-/* Utilidades suaves para superfícies PlanIt */
+/* Superficies PlanIt (para cards, etc.) */
 .planit-surface {
   background-color: var(--planit-color-surface);
   border-radius: var(--planit-radius-lg);
@@ -44,10 +44,11 @@ body {
   text-transform: uppercase;
 }
 
-/* Links azules PlanIt */
+/* Links básicos sin subrayado (iOS-like) */
 a {
   color: var(--planit-color-primary);
+  text-decoration: none;
 }
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
 }

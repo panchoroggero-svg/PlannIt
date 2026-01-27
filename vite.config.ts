@@ -11,7 +11,6 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
 
-      // 👉 Solo para desarrollo local
       devOptions: {
         enabled: true,
         navigateFallback: 'index.html',
@@ -33,8 +32,8 @@ export default defineConfig({
         start_url: '/',
         scope: '/',
         display: 'standalone',
-        background_color: '#ffffff',
-        theme_color: '#4A90E2',
+        background_color: '#F2F2F2', // fondo PlanIt
+        theme_color: '#F2F2F2',      // evita barras azules del sistema
         icons: [
           {
             src: '/pwa-192x192.png',

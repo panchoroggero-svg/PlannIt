@@ -10,17 +10,17 @@ export function Layout() {
         <Outlet />
       </div>
 
-      {/* TAB BAR estilo iOS + identidad PlanIt */}
+      {/* TAB BAR estilo iOS + PlanIt */}
       <nav
         className="
           fixed bottom-0 left-0 right-0
           z-50
-          bg-[#F2F2F2]
+          bg-transparent
         "
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        {/* capa de vidrio + borde hairline */}
-        <div className="bg-[#F2F2F2]/70 backdrop-blur-xl border-t border-[rgba(60,60,67,0.15)]">
+        {/* Vidrio difuminado, SIN línea de borde */}
+        <div className="bg-[#F2F2F2]/60 backdrop-blur-2xl">
           <div
             className="
               h-[88px]
@@ -56,16 +56,17 @@ function Tab({
         `
         flex flex-col items-center gap-0.5
         text-[10px] font-medium
+        no-underline
         ${
           isActive
-            ? "text-[#2385F3]"   /* azul PlanIt */
-            : "text-[#8E8E93]"   /* gris iOS para inactivo */
+            ? "text-[#2385F3]"   /* celeste PlanIt activo */
+            : "text-[#8E8E93]"   /* gris iOS inactivo */
         }
         `
       }
     >
       {icon}
-      <span>{label}</span>
+      <span className="no-underline">{label}</span>
     </NavLink>
   )
 }
