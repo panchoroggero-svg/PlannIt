@@ -14,14 +14,13 @@ export function Layout() {
         className="
           fixed bottom-0 left-0 right-0
           z-50
-          bg-[#F2F2F7]
+          bg-transparent
         "
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        {/* blur real */}
-        <div className="bg-[#F2F2F7]/70 backdrop-blur-xl border-t border-[rgba(60,60,67,0.29)]">
-          <div
-            className="
+        {/* blur real + transparencia ligera + línea menos marcada */}
+        <div className="bg-[#F2F2F7]/50 backdrop-blur-xl border-t border-[rgba(60,60,67,0.15)]">
+          <div className="
               h-[88px]
               flex justify-around
               pt-2
