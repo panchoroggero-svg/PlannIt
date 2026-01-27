@@ -19,8 +19,8 @@ export function Layout() {
         "
         style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
       >
-        {/* Vidrio difuminado, MÁS transparente, sin línea */}
-        <div className="bg-[#F2F2F2]/35 backdrop-blur-2xl">
+        {/* Mucho más transparente, sin línea, con leve sombra tipo iOS */}
+        <div className="bg-white/55 backdrop-blur-2xl shadow-[0_-6px_20px_rgba(0,0,0,0.12)]">
           <div
             className="
               h-[88px]
@@ -59,11 +59,12 @@ function Tab({
         no-underline
         ${
           isActive
-            ? "text-[#2385F3]"    /* seleccionado: azul PlanIt */
-            : "text-[#A0A0A5]"    /* no seleccionados: gris más claro */
+            ? "text-[#2385F3]"    /* SOLO seleccionada en azul PlanIt */
+            : "text-[#A0A0A5]"    /* resto gris claro */
         }
         `
       }
+      end
     >
       {icon}
       <span className="no-underline">{label}</span>
