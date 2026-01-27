@@ -26,12 +26,12 @@ export function Layout() {
           z-50
 
           h-[88px]
-          pt-2
+          pt-[10px]
           pb-4
 
           flex
           justify-around
-          items-center
+          items-start
 
           border-t
           border-[#D1D1D6]
@@ -69,9 +69,8 @@ function Tab({
         flex
         flex-col
         items-center
-        justify-center
 
-        gap-[2px]
+        gap-[3px]
 
         text-[10px]
         leading-none
