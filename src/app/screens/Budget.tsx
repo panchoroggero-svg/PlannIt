@@ -36,6 +36,7 @@ export function Budget() {
             shadow-[0_8px_24px_rgba(0,0,0,0.06)]
           "
         >
+          {/* Título de sección alineado igual que en otras páginas */}
           <div className="text-[13px] font-medium text-[#6B6B6F] mb-1">
             Presupuesto total
           </div>
@@ -77,7 +78,8 @@ export function Budget() {
 
         {/* Presupuesto por categoría */}
         <section aria-label="Presupuesto por categoría" className="space-y-3">
-          <h2 className="text-[17px] font-semibold text-[#3D3D3D] px-1">
+          {/* Este título ahora está alineado como los demás (sin px extra) */}
+          <h2 className="text-[17px] font-semibold text-[#3D3D3D]">
             Por categoría
           </h2>
 
