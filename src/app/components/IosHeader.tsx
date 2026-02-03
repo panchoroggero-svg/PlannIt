@@ -9,21 +9,20 @@ export default function IosHeader({ title }: IosHeaderProps) {
 
   useEffect(() => {
     const onScroll = () => {
-      // Umbral de colapso suave
       setCollapsed(window.scrollY > 40)
     }
 
-    onScroll() // por si entrás ya scrolleado
+    onScroll()
     window.addEventListener("scroll", onScroll)
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
   return (
     <header className="sticky top-0 z-40">
-      {/* Una sola lámina: status bar + header */}
+      {/* MISMO COLOR BASE QUE EL SISTEMA: #F2F2F7 */}
       <div
         className="
-          bg-[#F2F2F2]/40  /* mismo base que la barra de sistema */
+          bg-[#F2F2F7]/40
           backdrop-blur-2xl
         "
         style={{ paddingTop: "env(safe-area-inset-top)" }}
@@ -33,7 +32,7 @@ export default function IosHeader({ title }: IosHeaderProps) {
           className={`
             h-11
             flex justify-center items-end
-            pb-1              /* empuja el texto un pelín hacia arriba visualmente */
+            pb-1
             transition-opacity duration-200
             ${collapsed ? "opacity-100" : "opacity-0"}
           `}
@@ -43,7 +42,7 @@ export default function IosHeader({ title }: IosHeaderProps) {
           </span>
         </div>
 
-        {/* Área de título grande: cambia altura de verdad */}
+        {/* Área de título grande */}
         <div
           className={`
             overflow-hidden
