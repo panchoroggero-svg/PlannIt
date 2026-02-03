@@ -23,18 +23,18 @@ function getInitialTheme(): ThemeMode {
 
 export function Profile() {
   const [theme, setTheme] = useState<ThemeMode>(getInitialTheme)
+  const isDark = theme === "dark"
 
-  // Aplicar el tema al cargar / cambiar
+  // Aplicar el tema al documento (fondo global, sobre todo overscroll)
   useEffect(() => {
     if (typeof window === "undefined") return
 
     window.localStorage.setItem(THEME_KEY, theme)
 
-    // Fondo general del documento (suaviza el cambio al navegar)
-    const bg = theme === "dark" ? "#000000" : "#F2F2F7"
+    const bg = isDark ? "#000000" : "#F2F2F7"
     document.body.style.backgroundColor = bg
     document.documentElement.style.backgroundColor = bg
-  }, [theme])
+  }, [theme, isDark])
 
   const user = {
     name: "Francisco Roggero",
@@ -42,15 +42,16 @@ export function Profile() {
     events: 3,
   }
 
-  const isDark = theme === "dark"
-
   return (
     <div
-      className={`min-h-screen ${
-        isDark ? "bg-black text-white" : "bg-[#F2F2F7] text-[#3D3D3D]"
-      }`}
+      className={
+        isDark
+          ? "min-h-screen bg-black text-white"
+          : "min-h-screen bg-[#F2F2F7] text-[#3D3D3D]"
+      }
     >
-      <IosHeader title="Perfil" />
+      {/* 👇 Aquí forzamos header dark o light según el modo actual */}
+      <IosHeader title="Perfil" mode={isDark ? "dark" : "light"} />
 
       <main className="px-4 pt-3 pb-6 space-y-6">
         {/* Card de usuario */}
@@ -121,11 +122,7 @@ export function Profile() {
             <li>
               <button className="w-full flex items-center px-4 py-3.5 text-left active:bg-white/5">
                 <div className="w-8 flex justify-center">
-                  <Bell
-                    className={`w-4 h-4 ${
-                      isDark ? "text-[#8E8E93]" : "text-[#8E8E93]"
-                    }`}
-                  />
+                  <Bell className="w-4 h-4 text-[#8E8E93]" />
                 </div>
                 <div className="flex-1">
                   <p className="text-[15px]">Notificaciones</p>
@@ -149,11 +146,7 @@ export function Profile() {
             <li>
               <button className="w-full flex items-center px-4 py-3.5 text-left active:bg-white/5">
                 <div className="w-8 flex justify-center">
-                  <Globe2
-                    className={`w-4 h-4 ${
-                      isDark ? "text-[#8E8E93]" : "text-[#8E8E93]"
-                    }`}
-                  />
+                  <Globe2 className="w-4 h-4 text-[#8E8E93]" />
                 </div>
                 <div className="flex-1">
                   <p className="text-[15px]">Idioma</p>
