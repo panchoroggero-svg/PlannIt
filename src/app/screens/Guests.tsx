@@ -170,7 +170,7 @@ export function Guests() {
       <IosHeader title="Invitados" />
 
       <main className="px-4 pt-3 pb-6 space-y-6">
-        {/* Tarjetas de resumen */}
+        {/* Stats cards */}
         <section
           aria-label="Resumen de invitados"
           className="grid grid-cols-4 gap-2"
@@ -201,18 +201,21 @@ export function Guests() {
           </div>
         </section>
 
-        {/* Buscador */}
+        {/* 🔍 Buscador estilo iOS */}
         <section className="relative">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#6B6B6F]" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8E8E93]" />
           <Input
             placeholder="Buscar invitado, email o grupo"
             className="
-              pl-9
-              rounded-2xl
-              bg-white
+              pl-10
+              h-11
+              rounded-full
+              bg-[#E5E5EA]
               border-none
-              shadow-[0_2px_10px_rgba(0,0,0,0.04)]
-              text-[14px]
+              shadow-none
+              text-[16px]
+              text-[#3D3D3D]
+              placeholder:text-[#8E8E93]
             "
           />
         </section>

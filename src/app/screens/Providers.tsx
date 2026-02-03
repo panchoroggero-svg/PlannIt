@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin } from "lucide-react"
+import { Phone, Mail, MapPin, Search } from "lucide-react"
 import { Input } from "@/app/components/ui/input"
 import IosHeader from "@/app/components/IosHeader"
 
@@ -56,17 +56,21 @@ export function Providers() {
       <IosHeader title="Proveedores" />
 
       <main className="px-4 pt-3 pb-6 space-y-6">
-        {/* Buscador */}
+        {/* 🔍 Buscador estilo iOS */}
         <section className="relative">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-[#8E8E93]" />
           <Input
             placeholder="Buscar salón, catering o proveedor…"
             className="
-              pl-3
-              rounded-2xl
-              bg-white
+              pl-10
+              h-11
+              rounded-full
+              bg-[#E5E5EA]
               border-none
-              shadow-[0_2px_10px_rgba(0,0,0,0.04)]
-              text-[14px]
+              shadow-none
+              text-[16px]
+              text-[#3D3D3D]
+              placeholder:text-[#8E8E93]
             "
           />
         </section>
